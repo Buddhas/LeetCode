@@ -1,6 +1,6 @@
 var reversePairs = function(nums){
-    getParis(nums)
-    console.log(nums)
+    //getParis(nums)
+    //console.log(nums)
     return getParis(nums)
 }
 

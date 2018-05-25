@@ -1,71 +1,41 @@
-function longestPalindrome(s){
-    var startIndex = 0
-    var endIndex = 0
-
-    var resStart = 0
-    var resEnd = 0
-    var maxLen = 0
-    var countLen = 0
+var isPalindrome = function(x) {
     
-    for(var i = 0; i < s.length; i++){
-        //当回文为奇数的时候的处理方案
-        startIndex = i - 1
-        endIndex = i + 1
-        countLen = 0
-        while(startIndex >= 0 && endIndex <= s.length){
-            if(s[startIndex] === s[endIndex]){
-                countLen++
-                startIndex--
-                endIndex++
+    x = x + ""
+    var isOll = (x.length)%2
+    if(isOll == 0){//为偶数时的判断
+        var i = 0;
+        var j = x.length - 1
+        while(i < j){
+            if(x[i] == x[j]){
+                i++
+                j--
             }else{
-                startIndex++
-                endIndex--
                 break
             }
-            
         }
-        if(maxLen < countLen){
-            if(startIndex < 0){
-                startIndex = 0
-            }
-            if(endIndex > s.length){
-                endIndex = 0
-            }
-            resStart = startIndex
-            resEnd = endIndex
-            maxLen = countLen
+        if(i >= j){
+            return true
+        }else{
+            return false
         }
-
-        //当回文为偶数的时候的处理方案
-        startIndex = i 
-        endIndex = i + 1
-        countLen = 0
-        while(startIndex >= 0 && endIndex <= s.length){
-            if(s[startIndex] === s[endIndex]){
-                countLen++
-                startIndex--
-                endIndex++
+    }else{
+        var i = 0
+        var j = x.length - 1
+        while(i != j){
+            if(x[i] == x[j]){
+                i++
+                j--
             }else{
-                startIndex++
-                endIndex--
                 break
             }
-            
         }
-        if(maxLen < countLen){
-            if(startIndex < 0){
-                startIndex = 0
-            }
-            if(endIndex > s.length){
-                endIndex = 0
-            }
-            resStart = startIndex
-            resEnd = endIndex
-            maxLen = countLen
+        if(i == j){
+            return true
+        }else{
+            return false
         }
     }
 
-    console.log(s.substring(resStart,resEnd + 1))
-}
+};
 
-longestPalindrome('ccbbaa')
+isPalindrome(11)

@@ -3,7 +3,7 @@ function TreeNode(val) {
     this.left = null;
     this.right = null;
  }
-var 
+
 var maxDepth = function(root) {
     var leftlLength = 0
     var rightLength = 0

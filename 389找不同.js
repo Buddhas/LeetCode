@@ -6,7 +6,7 @@ var findTheDifference = function(s, t) {
             return t[i]
         }
     }
-    if(i === t.length){
+    if(i === t.length - 1){
         return t[i]
     }
 };

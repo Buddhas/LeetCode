@@ -1,2 +1,2 @@
-var str = "abcde"
-console.log(str.slice(2,6))
+var obj = {}
+obj.push

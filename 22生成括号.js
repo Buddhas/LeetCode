@@ -1,11 +1,12 @@
 var arr = []
 
 var generateParenthesis = function(n) {
-    helper("",n,0,0)
+    var arr = []
+    helper("",arr,n,0,0)
     return arr
 };
 
-var helper = function(cur,n,left,right){
+var helper = function(cur,arr,n,left,right){
    
     if(right === n && left === n){
         if(isValid(cur)){
@@ -15,11 +16,11 @@ var helper = function(cur,n,left,right){
     }
     if(left < n){
         
-        helper(cur + "(",n,left + 1,right)
+        helper(cur + "(",arr,n,left + 1,right)
     }
     if(right < n){
         
-        helper(cur + ")",n,left,right + 1)
+        helper(cur + ")",arr,n,left,right + 1)
     }
 }
 

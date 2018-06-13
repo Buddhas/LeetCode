@@ -18,6 +18,7 @@ var findErrorNums = function(nums) {
     var sum2 = sum(sumArr)
     var second = sum1 - sum2
     resultArr.push(second)
+    resultArr.reverse()
     return resultArr
 };
 function sum(arr){

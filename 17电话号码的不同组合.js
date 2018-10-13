@@ -19,5 +19,4 @@ var zuhe = function(arr,n,digits,sb,a){
     }
 
 }
-
-letterCombinations("39")
+console.log(letterCombinations("393"))

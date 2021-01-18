@@ -1,17 +1,5 @@
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
 
-/**
- * Encodes a tree to a single string.
- *
- * @param {TreeNode} root
- * @return {string}
- */
+// 深度优先遍历
 var serialize = function(root) {
     const result = []
     const traverNode = (root) => {
@@ -27,12 +15,7 @@ var serialize = function(root) {
     return result
 };
 
-/**
- * Decodes your encoded data to tree.
- *
- * @param {string} data
- * @return {TreeNode}
- */
+
 var deserialize = function(data) {
     const length = data.length
 
@@ -61,7 +44,60 @@ var deserialize = function(data) {
     return strcuture()
 };
 
-/**
- * Your functions will be called as such:
- * deserialize(serialize(root));
- */
+
+// 广度优先遍历
+var serialize = function(root) {
+  if (!root) return []
+  const queue = []
+  const data = []
+  queue.push(root)
+
+  while(queue.length) {
+    const node = queue.shift()
+    data.push(node.val ? node.val : null)
+
+    if (node) {
+      queue.push(node.left)
+      queue.push(node.right)
+    }
+  }
+
+  return data
+};
+
+
+var deserialize = function(data) {
+
+  if (data.length == 0) {
+    return null
+  }
+
+  const queue = []
+  const root = new TreeNode(data.shift())
+  queue.push(root)
+
+  while(queue.length) {
+    // 左边
+    let val = data.shift()
+    const node = queue.shift()
+    if (val == null) {
+      node.left = null
+    } else {
+      const leftNode = new TreeNode(val)
+      node.left = leftNode
+      queue.push(leftNode)
+    }
+
+    // 右边
+    val = data.shift()
+    if (val == null) {
+      node.right = null
+    } else {
+      const rightNode = new TreeNode(val)
+      node.right = rightNode
+      queue.push(rightNode)
+    }
+  }
+
+  return root
+};

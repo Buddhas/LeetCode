@@ -30,7 +30,8 @@ Trie.prototype.searchPrefix = function(word) {
  * @return {boolean}
  */
 Trie.prototype.search = function(word) {
-
+  const nodes = this.searchPrefix(word)
+  return nodes!==undefined && nodes.isEnd != undefined
 };
 
 /** 
@@ -38,7 +39,7 @@ Trie.prototype.search = function(word) {
  * @return {boolean}
  */
 Trie.prototype.startsWith = function(prefix) {
-
+  return this.searchPrefix(prefix)
 };
 
 /**

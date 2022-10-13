@@ -9,7 +9,7 @@ const levelOrder = function (root) {
 const tempLevelOrder = function (root, result, deep) {
   if (!root) return
   if (!result[deep]) {
-    result[deep] = [root,val]
+    result[deep] = [root.val]
   } else {
     result[deep].push(root.val)
   }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <input type="text" name="search" id="search" onchange="createChldren()">
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    let arr = ['aaa', 'aab', 'aac', 'aad', 'aaaa', 'aabb']
+    let ele = document.getElementById('search')
+    let map = new Map()
+
+    function buildMap() {
+        for (let i = 0; i < arr.length; i++) {
+            let _currentStr = arr[i]
+            for (let j = 0; j < _currentStr.length; j++) {
+                if (map.has(_currentStr.slice(0, j + 1))) {
+                    let _currentValue = map.get(_currentStr.slice(0, j + 1))
+                    _currentValue.push(_currentStr)
+                } else {
+                    map.set(_currentStr.slice(0, j + 1), [_currentStr])
+                }
+            }
+        }
+    }
+
+    buildMap()
+
+    function find() {
+        return map.get(ele.value)
+    }
+
+    function createChldren() {
+        let node = document.createElement('div')
+        let textNode = document.createTextNode(find())
+        node.appendChild(textNode)
+        document.getElementById('wrapper').appendChild(node)
+    }
+
+
+</script>

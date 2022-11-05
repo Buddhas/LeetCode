@@ -1,26 +1,26 @@
 function TreeNode(val) {
-  this.val = val;
-  this.left = this.right = null;
+    this.val = val;
+    this.left = this.right = null;
 }
 
 var arr = [];
-var sumNumbers = function(root) {
-  sum1(root, 0);
+var sumNumbers = function (root) {
+    sum1(root, 0);
 };
 
-var sum1 = function(root, sum) {
- 
-    if(root.left !== null){
+var sum1 = function (root, sum) {
+
+    if (root.left !== null) {
         sum1(root.left, root.val + sum);
-    }else{
+    } else {
         arr.push(root.val + sum);
     }
-    if(root.right !== null){
+    if (root.right !== null) {
         sum1(root.right, root.val + sum);
-    }else{
+    } else {
         arr.push(root.val + sum);
     }
-  
+
 };
 
 
